@@ -1,0 +1,1 @@
+web: gunicorn paylater_project.wsgi
