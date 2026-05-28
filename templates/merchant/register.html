@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-primary text-white">
+                <h3>Merchant Registration</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label>Name</label>
+                        <input type="text" name="name"
+                        class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email"
+                        class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Phone</label>
+                        <input type="text" name="phone"
+                        class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Business Name</label>
+                        <input type="text" name="business_name"
+                        class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" name="password"
+                        class="form-control" required>
+                    </div>
+
+                    <button type="submit"
+                    class="btn btn-success w-100">
+
+                        Register
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

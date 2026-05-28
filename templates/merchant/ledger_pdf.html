@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Ledger PDF</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+        }
+
+        table{
+            width:100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td{
+            border:1px solid black;
+        }
+
+        th, td{
+            padding:8px;
+            text-align:left;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h2>
+        Customer Ledger Report
+    </h2>
+
+    <hr>
+
+    <h3>
+        Customer:
+        {{ customer.customer_name }}
+    </h3>
+
+    <p>
+        Phone:
+        {{ customer.phone }}
+    </p>
+
+    <hr>
+
+    <h3>Summary</h3>
+
+    <p>
+        Total Credit :
+        ₹ {{ total_credit }}
+    </p>
+
+    <p>
+        Total Payment :
+        ₹ {{ total_payment }}
+    </p>
+
+    <p>
+        Outstanding :
+        ₹ {{ outstanding }}
+    </p>
+
+    <hr>
+
+    <h3>Credit Transactions</h3>
+
+    <table>
+
+        <tr>
+
+            <th>Amount</th>
+            <th>Note</th>
+            <th>Date</th>
+
+        </tr>
+
+        {% for i in credits %}
+
+        <tr>
+
+            <td>{{ i.amount }}</td>
+
+            <td>{{ i.note }}</td>
+
+            <td>{{ i.created_at }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br><br>
+
+    <h3>Payments</h3>
+
+    <table>
+
+        <tr>
+
+            <th>Amount</th>
+            <th>Note</th>
+            <th>Date</th>
+
+        </tr>
+
+        {% for i in payments %}
+
+        <tr>
+
+            <td>{{ i.amount }}</td>
+
+            <td>{{ i.note }}</td>
+
+            <td>{{ i.created_at }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

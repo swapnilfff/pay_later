@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    Notifications
+</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>Message</th>
+        <th>Date</th>
+
+    </tr>
+
+    {% for i in notifications %}
+
+    <tr>
+
+        <td>{{ i.message }}</td>
+
+        <td>{{ i.created_at }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+    Ledger :
+    {{ customer.customer_name }}
+
+</h2>
+
+<div class="row mb-4">
+
+    <div class="col-md-4">
+
+        <div class="card bg-primary text-white p-3">
+
+            <h4>Total Credit</h4>
+
+            <h2>{{ total_credit }}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card bg-success text-white p-3">
+
+            <h4>Total Payment</h4>
+
+            <h2>{{ total_payment }}</h2>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card bg-danger text-white p-3">
+
+            <h4>Outstanding</h4>
+
+            <h2>{{ outstanding }}</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mb-3">
+
+    <a href="/add-credit/{{ customer.id }}/"
+    class="btn btn-primary">
+
+        Add Credit
+
+    </a>
+
+    <a href="/add-payment/{{ customer.id }}/"
+    class="btn btn-success">
+
+        Add Payment
+
+    </a>
+
+
+    <a href="/export-pdf/{{ customer.id }}/"
+    class="btn btn-dark">
+
+    Download PDF
+
+</a>
+
+</div>
+
+<h3>Credit Transactions</h3>
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>Amount</th>
+        <th>Note</th>
+        <th>Date</th>
+        <th>File</th>
+
+    </tr>
+
+    {% for i in credits %}
+
+    <tr>
+
+        <td>{{ i.amount }}</td>
+
+        <td>{{ i.note }}</td>
+
+        <td>{{ i.created_at }}</td>
+
+        <td>
+
+            {% if i.file %}
+
+                <a href="{{ i.file.url }}"
+                target="_blank">
+
+                    View
+
+                </a>
+
+            {% else %}
+
+                No File
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<h3 class="mt-5">Payments</h3>
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>Amount</th>
+        <th>Note</th>
+        <th>Date</th>
+
+    </tr>
+
+    {% for i in payments %}
+
+    <tr>
+
+        <td>{{ i.amount }}</td>
+
+        <td>{{ i.note }}</td>
+
+        <td>{{ i.created_at }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

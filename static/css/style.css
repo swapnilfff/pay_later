@@ -1,0 +1,49 @@
+body{
+
+    background-color:#f5f5f5;
+
+}
+
+.card{
+
+    border:none;
+    border-radius:10px;
+
+}
+
+.card-header{
+
+    font-weight:bold;
+
+}
+
+.table{
+
+    background:white;
+
+}
+
+.btn{
+
+    border-radius:8px;
+
+}
+
+.navbar-brand{
+
+    font-weight:bold;
+    font-size:24px;
+
+}
+
+h2, h3, h4{
+
+    font-weight:bold;
+
+}
+
+.shadow{
+
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+
+}

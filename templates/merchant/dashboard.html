@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+    Welcome,
+    {{ merchant.name }}
+
+</h2>
+
+<div class="row">
+
+    <div class="col-md-3">
+
+        <div class="card bg-primary text-white p-3 shadow">
+
+            <h5>Total Customers</h5>
+
+            <h2>{{ customer_count }}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-success text-white p-3 shadow">
+
+            <h5>Total Credit</h5>
+
+            <h2>₹ {{ total_credit }}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-warning text-dark p-3 shadow">
+
+            <h5>Total Payment</h5>
+
+            <h2>₹ {{ total_payment }}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-danger text-white p-3 shadow">
+
+            <h5>Outstanding</h5>
+
+            <h2>₹ {{ outstanding }}</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mt-4">
+
+    <a href="/customers/"
+    class="btn btn-primary">
+
+        Manage Customers
+
+    </a>
+
+    <a href="/notifications/"
+    class="btn btn-dark">
+
+    Notifications
+
+    </a>
+
+    <a href="/logout/"
+    class="btn btn-danger">
+
+        Logout
+
+    </a>
+
+</div>
+
+<hr class="my-5">
+
+<h3>Recent Credit Transactions</h3>
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>Customer</th>
+        <th>Amount</th>
+        <th>Note</th>
+        <th>Date</th>
+
+    </tr>
+
+    {% for i in recent_credits %}
+
+    <tr>
+
+        <td>{{ i.customer.customer_name }}</td>
+
+        <td>₹ {{ i.amount }}</td>
+
+        <td>{{ i.note }}</td>
+
+        <td>{{ i.created_at }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
